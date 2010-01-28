@@ -53,7 +53,7 @@ class CommentListNode(BaseThreadedCommentNode):
             qs = qs.order_by('-submit_date')
         elif self.root_only:
             qs = qs.exclude(parent__isnull=False).order_by('-submit_date')
-        return qs
+        return qs.select_related('user').order_by('tree_id', 'lft')
 
 
 class CommentFormNode(BaseThreadedCommentNode):
