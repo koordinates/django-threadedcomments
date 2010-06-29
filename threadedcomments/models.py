@@ -7,11 +7,13 @@ import mptt
 
 MAX_PATH_LENGTH = 255
 
+
 class ThreadedComment(Comment):
     title = models.TextField(_('Title'), blank=True)
     parent = models.ForeignKey('self', null=True, blank=True, default=None,
         related_name='children', verbose_name=_('Parent'))
-
+    
+    objects = CommentManager()
 
     class Meta(object):
         db_table = 'threadedcomments_comment'
