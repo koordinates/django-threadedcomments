@@ -1,6 +1,6 @@
 from itertools import chain, imap
 
-__all__ = ['fill_tree', 'annotate_tree_properties',]
+__all__ = ['fill_tree', 'annotate_tree_properties', ]
 
 def _mark_as_root_path(comment):
     " Mark on comment as Being added to fill the tree. "
@@ -18,7 +18,7 @@ def fill_tree(comments):
     it = iter(comments)
     first = it.next()
     return chain(imap(_mark_as_root_path, first.root_path), [first], it)
-    
+
 def annotate_tree_properties(comments):
     """
     iterate through nodes and adds some magic properties to each of them
@@ -36,7 +36,7 @@ def annotate_tree_properties(comments):
     old.open = True
     last = set()
     for c in it:
-        # if this comment has a parent, store it's last child for future reference
+        # if this comment has a parent, store its last child for future reference
         if old.last_child_id:
             last.add(old.last_child_id)
 

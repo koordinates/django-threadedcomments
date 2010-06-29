@@ -12,7 +12,7 @@ class ThreadedComment(Comment):
     parent = models.ForeignKey('self', null=True, blank=True, default=None,
         related_name='children', verbose_name=_('Parent'))
 
-    
+
     class Meta(object):
         db_table = 'threadedcomments_comment'
         verbose_name = _('Threaded comment')
