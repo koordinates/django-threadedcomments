@@ -17,7 +17,6 @@ kwargs = {
     ],
     'include_package_data': True,
     'zip_safe': False,
-    'install_requires': ['setuptools'],
     'classifiers': [
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
