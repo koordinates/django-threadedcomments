@@ -9,7 +9,7 @@ __all__ = ('MAX_PATH_LENGTH', 'ThreadedComment')
 
 MAX_PATH_LENGTH = 255
 
-class ThreadedComment(Comment, MPTTModel):
+class ThreadedComment(MPTTModel, Comment):
     title = models.TextField(_('Title'), blank=True)
     parent = models.ForeignKey('self', null=True, blank=True, default=None,
         related_name='children', verbose_name=_('Parent'))
