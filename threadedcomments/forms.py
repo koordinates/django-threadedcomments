@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.comments.forms import CommentForm
 from django.conf import settings
-from django.utils.hashcompat import sha_constructor
 from django.utils.translation import ugettext_lazy as _
 
 from threadedcomments.models import ThreadedComment
+
 
 class ThreadedCommentForm(CommentForm):
     parent = forms.IntegerField(required=False, widget=forms.HiddenInput)
@@ -32,4 +32,3 @@ class ThreadedCommentForm(CommentForm):
         d['parent_id'] = self.cleaned_data['parent']
         d['title'] = self.cleaned_data['title']
         return d
-
